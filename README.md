@@ -17,9 +17,9 @@ additionalServiceProviders:
 
 All you need to do is to create your node-source `Controller` in your theme and use `PdfControllerTrait`. You will be able to override any methods to configure your PDF rendering such as:
 
-- `protected function getPdfTemplate(): string` (Default: `'pdf/page.xml.twig'`) 
+- `protected function getPdfTemplate(): string` (Default: `'@AbstractPdfTheme/pdf/base.xml.twig'`) 
 - `protected function getPdfStylesheetPath(): string` (Default: `$this->getResourcesFolder() . '/config/pdf_stylesheet.xml'`) 
-- `protected function getPdfFilename(NodesSources $nodeSource = null): string` (Default: `'pdf/fonts.xml.twig'`)
+- `protected function getPdfFilename(NodesSources $nodeSource = null): string` (Default: `'@AbstractPdfTheme/pdf/fonts.xml.twig'`)
 
 ```php
 <?php

@@ -47,7 +47,7 @@ trait PdfControllerTrait
      */
     protected function getPdfTemplate()
     {
-        return 'pdf/page.xml.twig';
+        return '@AbstractPdfTheme/pdf/base.xml.twig';
     }
 
     /**
@@ -63,7 +63,7 @@ trait PdfControllerTrait
      */
     protected function getPdfFontsTemplate()
     {
-        return 'pdf/fonts.xml.twig';
+        return '@AbstractPdfTheme/pdf/fonts.xml.twig';
     }
 
     /**
