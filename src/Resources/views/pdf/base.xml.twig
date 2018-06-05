@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pdf SYSTEM "%resources%/dtd/doctype.dtd">
+<pdf Author="Roadiz"
+     Creator="Roadiz"
+     Title="{{ nodeSource.title }}"
+     Subject="{{ nodeSource.title }}"
+     ModDate="{{ nodeSource.node.updatedAt|date('Y-m-d H:i:s') }}">
+    {% block preManualPages %}
+
+    {% endblock %}
+    {% block dynamicPages %}
+        <dynamic-page encoding="UTF-8" page-size="a4" font-type="SegoeUI" margin="4.9cm 1.55cm 0cm 1.55cm">
+            <placeholders>
+                <header>
+                    <div height="0px" width="100%"></div>
+                </header>
+                <footer>
+                    <div class="footer" height="1cm" margin="0cm" width="100%">
+                        <p>{{ url(nodeSource) }}</p>
+                    </div>
+                </footer>
+            </placeholders>
+            <div class="container" margin="0cm 0cm 0cm 4.15cm">
+                {% block innerContent %}
+                    <h1 font-type="DejaVuSans">{{ nodeSource.title }}</h1>
+                    {% if nodeSource.excerpt %}
+                        <h3 class="excerpt"><span>{{ nodeSource.excerpt|inlineMarkdown|pdfsafe }}</span></h3>
+                    {% endif %}
+                    <div class="content">
+                        {{ nodeSource.content|markdownExtra|pdfsafe }}
+                    </div>
+                {% endblock %}
+            </div>
+        </dynamic-page>
+    {% endblock %}
+    {% block postManualPages %}
+
+    {% endblock %}
+</pdf>

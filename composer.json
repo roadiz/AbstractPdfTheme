@@ -1,0 +1,23 @@
+{
+    "name": "roadiz/abstract-pdf-theme",
+    "description": "Abstract PDF middleware for your Roadiz theme to generate PDF responses out of your contents.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ambroise Maupate",
+            "email": "ambroise@rezo-zero.com"
+        }
+    ],
+    "require": {
+        "php": "^7.0",
+        "roadiz/roadiz": "^0.22 || dev-develop",
+        "rezozero/pdfsafe": "^1.0",
+        "psliwa/php-pdf": "^1.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Themes\\AbstractPdfTheme\\": "src/"
+        }
+    }
+}

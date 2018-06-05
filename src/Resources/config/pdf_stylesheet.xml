@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stylesheet>
+    <p margin="0mm 0mm 0mm 0mm" padding="0mm"  font-size="9pt" />
+
+    <table class="project-table">
+        <td padding="2mm 2mm" border-size="0.25pt"/>
+        <td class="header-cell" background-color="#EFEFEF" />
+        <h1 margin="0"/>
+        <h2 margin="0"/>
+        <h3 margin="0"/>
+        <h4 margin="0"/>
+        <h5 margin="0"/>
+    </table>
+
+    <table class="light-table">
+        <td class="number" width="1cm" text-align="right" />
+        <td class="key" width="5cm" font-style="bold" font-size="10pt" />
+        <td class="description" width="9cm" />
+        <td padding="2mm 3mm 2mm 0mm" text-align="left" border-size="0" border-type="none"/>
+        <h3 margin="2mm 0 1mm" font-size="9pt"/>
+        <h4 margin="2mm 0 1mm" font-size="9pt"/>
+        <h5 margin="2mm 0 1mm" font-size="9pt"/>
+        <td>
+            <table class="project-table">
+                <td padding="1mm 2mm" border-size="0.25pt" border-type="top+bottom"/>
+                <td class="header-cell" background-color="#EFEFEF" border-type="bottom"/>
+            </table>
+        </td>
+    </table>
+    <table class="smaller" font-size="8pt">
+        <td class="header-cell" border-size="1pt" border-type="bottom" background-color="#EFEFEF" />
+        <td class="header-cell description" border-size="1pt" border-type="bottom" background-color="#EFEFEF" />
+        <td border-size="0.25pt" border-type="bottom" />
+        <td class="description" border-size="0.25pt" border-type="bottom" />
+    </table>
+    <div class="footer" padding="1mm 0mm 0mm 0mm" border-type="top" border-color="#CCCCCC" border-size="1pt"/>
+    <any class="custom-legals" font-size="7pt" text-align="left"/>
+    <any class="legals" padding="1mm 0mm 0mm 0mm" font-size="7pt" text-align="left" border-type="top" border-color="#CCCCCC" border-size="0.5pt"/>
+    <any class="letter-legals" padding="1mm 0mm 0mm 0mm" font-size="7pt" text-align="left" />
+</stylesheet>
