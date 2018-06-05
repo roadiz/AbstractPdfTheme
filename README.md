@@ -4,7 +4,7 @@
 
 ## Dependency injection
 
-Edit your `app/conf/config.yml` file to register additional blog theme services.
+Edit your `app/conf/config.yml` file to register additional PDF theme services.
 
 ```yaml
 additionalServiceProviders: 
