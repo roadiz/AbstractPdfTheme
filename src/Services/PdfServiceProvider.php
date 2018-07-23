@@ -6,16 +6,16 @@ use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 use RZ\PdfSafe\PdfSafeExtension;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 class PdfServiceProvider implements ServiceProviderInterface
 {
     public function register(Container $container)
     {
         $container->extend('twig.extensions', function ($extensions, $c) {
-            /** @var Request $request */
-            $request = $c['request'];
-            $extensions->add(new PdfSafeExtension($request->getSchemeAndHttpHost()));
-
+            /** @var RequestStack $requestStack */
+            $requestStack = $c['requestStack'];
+            $extensions->add(new PdfSafeExtension($requestStack->getMasterRequest()->getSchemeAndHttpHost()));
             return $extensions;
         });
 

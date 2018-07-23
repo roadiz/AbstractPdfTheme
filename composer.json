@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": "^7.0",
-        "roadiz/roadiz": "^0.22 || dev-develop",
+        "roadiz/roadiz": "^0.22 || ^1.0 || dev-develop",
         "rezozero/pdfsafe": "^1.1",
         "psliwa/php-pdf": "^1.2"
     },
