@@ -5,7 +5,6 @@ namespace Themes\AbstractPdfTheme\Services;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 use RZ\PdfSafe\PdfSafeExtension;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 class PdfServiceProvider implements ServiceProviderInterface
