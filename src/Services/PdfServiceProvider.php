@@ -6,6 +6,7 @@ use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 use RZ\PdfSafe\PdfSafeExtension;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Twig\Loader\FilesystemLoader;
 
 class PdfServiceProvider implements ServiceProviderInterface
 {
@@ -24,9 +25,8 @@ class PdfServiceProvider implements ServiceProviderInterface
             return $extensions;
         });
 
-        $container->extend('twig.loaderFileSystem', function (\Twig_Loader_Filesystem $loader, $c) {
+        $container->extend('twig.loaderFileSystem', function (FilesystemLoader $loader, $c) {
             $loader->prependPath(dirname(__DIR__) . '/Resources/views', 'AbstractPdfTheme');
-
             return $loader;
         });
     }
