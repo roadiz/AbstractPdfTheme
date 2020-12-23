@@ -24,10 +24,10 @@ trait PdfControllerTrait
         $facade = $builder->build();
 
         if ($this->get('kernel')->isProdMode()) {
-            if (function_exists('xcache_set') && defined( CacheImpl::class . '::ENGINE_XCACHE')) {
+            if (function_exists('xcache_set') && defined(CacheImpl::class . '::ENGINE_XCACHE')) {
                 $facade->setCache(new CacheImpl('XCache'));
                 $builder->setUseCacheForStylesheetConstraint(true);
-            } elseif (function_exists('apcu_fetch') && defined( CacheImpl::class . '::ENGINE_APCU')) {
+            } elseif (function_exists('apcu_fetch') && defined(CacheImpl::class . '::ENGINE_APCU')) {
                 $facade->setCache(new CacheImpl('Apcu'));
                 $builder->setUseCacheForStylesheetConstraint(true);
             } elseif (function_exists('apc_fetch')) {

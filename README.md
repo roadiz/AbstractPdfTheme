@@ -4,7 +4,25 @@
 
 ## Dependency injection
 
-Edit your `app/conf/config.yml` file to register additional PDF theme services.
+- Add PDF services to your project `app/AppKernel.php`:
+
+```php
+# AppKernel.php
+/**
+ * {@inheritdoc}
+ */
+public function register(\Pimple\Container $container)
+{
+    parent::register($container);
+
+    /*
+     * Add your own service providers.
+     */
+    $container->register(new \Themes\AbstractPdfTheme\Services\PdfServiceProvider());
+}
+```
+
+or in your `app/conf/config.yml`:
 
 ```yaml
 additionalServiceProviders: 

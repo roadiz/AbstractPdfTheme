@@ -9,12 +9,18 @@ use Symfony\Component\HttpFoundation\RequestStack;
 
 class PdfServiceProvider implements ServiceProviderInterface
 {
+    /**
+     * @param Container $container
+     * @return void
+     */
     public function register(Container $container)
     {
         $container->extend('twig.extensions', function ($extensions, $c) {
             /** @var RequestStack $requestStack */
             $requestStack = $c['requestStack'];
-            $extensions->add(new PdfSafeExtension($requestStack->getMasterRequest()->getSchemeAndHttpHost()));
+            if ($requestStack->getMasterRequest() !== null) {
+                $extensions->add(new PdfSafeExtension($requestStack->getMasterRequest()->getSchemeAndHttpHost()));
+            }
             return $extensions;
         });
 

@@ -10,8 +10,8 @@
         }
     ],
     "require": {
-        "php": "^5.6 || ^7.1",
-        "roadiz/roadiz": "^0.22 || ^1.0 || dev-develop",
+        "php": "^7.2 || ^8.0",
+        "roadiz/roadiz": "^1.6 || dev-develop",
         "rezozero/pdfsafe": "^1.1",
         "psliwa/php-pdf": "^1.2"
     },
@@ -19,5 +19,12 @@
         "psr-4": {
             "Themes\\AbstractPdfTheme\\": "src/"
         }
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.5",
+        "phpstan/phpstan": "^0.12.64",
+        "roadiz/documents": "^1.6.0 || dev-develop",
+        "roadiz/models": "^1.6.0 || dev-develop",
+        "roadiz/markdown": "^1.6.0 || dev-develop"
     }
 }
