@@ -10,8 +10,8 @@
         }
     ],
     "require": {
-        "php": ">=7.2",
-        "roadiz/roadiz": "^1.6 || dev-develop",
+        "php": ">=7.4",
+        "roadiz/roadiz": "~1.6.0",
         "rezozero/pdfsafe": "^1.1",
         "psliwa/php-pdf": "^1.2"
     },
@@ -22,10 +22,6 @@
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.5",
-        "phpstan/phpstan": "^0.12.64",
-        "roadiz/documents": "^1.6.0 || dev-develop",
-        "roadiz/models": "^1.6.0 || dev-develop",
-        "roadiz/markdown": "^1.6.0 || dev-develop",
-        "roadiz/entity-generator": "~1.6.0 || dev-main"
+        "phpstan/phpstan": "^0.12.64"
     }
 }
