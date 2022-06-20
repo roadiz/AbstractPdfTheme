@@ -4,6 +4,7 @@ namespace Themes\AbstractPdfTheme\Controllers;
 
 use PHPPdf\Cache\CacheImpl;
 use PHPPdf\Core\Configuration\LoaderImpl;
+use PHPPdf\Core\Facade;
 use PHPPdf\Core\FacadeBuilder;
 use PHPPdf\Exception\RuntimeException;
 use RZ\Roadiz\Core\Entities\Font;
@@ -13,10 +14,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 trait PdfControllerTrait
 {
-    /**
-     * @return \PHPPdf\Core\Facade
-     */
-    protected function getPdfFacade()
+    protected function getPdfFacade(): Facade
     {
         $loader = new LoaderImpl();
         $loader->setFontFile($this->getXmlFonts());
@@ -45,7 +43,7 @@ trait PdfControllerTrait
     /**
      * @return string
      */
-    protected function getPdfTemplate()
+    protected function getPdfTemplate(): string
     {
         return '@AbstractPdfTheme/pdf/base.xml.twig';
     }
@@ -53,7 +51,7 @@ trait PdfControllerTrait
     /**
      * @return string
      */
-    protected function getPdfStylesheetPath()
+    protected function getPdfStylesheetPath(): string
     {
         return $this->getResourcesFolder() . '/config/pdf_stylesheet.xml';
     }
@@ -61,7 +59,7 @@ trait PdfControllerTrait
     /**
      * @return string
      */
-    protected function getPdfFontsTemplate()
+    protected function getPdfFontsTemplate(): string
     {
         return '@AbstractPdfTheme/pdf/fonts.xml.twig';
     }
@@ -71,7 +69,7 @@ trait PdfControllerTrait
      *
      * @return string
      */
-    protected function getPdfFilename(NodesSources $nodeSource = null)
+    protected function getPdfFilename(NodesSources $nodeSource = null): string
     {
         if (null !== $nodeSource) {
             return $nodeSource->getNode()->getNodeName() . '.pdf';
@@ -86,7 +84,7 @@ trait PdfControllerTrait
      *
      * @return Response
      */
-    protected function generatePdf(Request $request, NodesSources $nodeSource = null)
+    protected function generatePdf(Request $request, NodesSources $nodeSource = null): Response
     {
         if (null !== $nodeSource) {
             $facade = $this->getPdfFacade();
@@ -130,7 +128,7 @@ trait PdfControllerTrait
     /**
      * @return string
      */
-    protected function getXmlFonts()
+    protected function getXmlFonts(): string
     {
         $assignation['fontsEntities'] = $this->get('em')
             ->getRepository(Font::class)
@@ -154,7 +152,7 @@ trait PdfControllerTrait
             Font::LIGHT_ITALIC => "light-italic",
         ];
 
-        return $this->get('twig.environment')->render(
+        return $this->getTwig()->render(
             $this->getPdfFontsTemplate(),
             $assignation
         );

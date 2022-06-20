@@ -11,12 +11,12 @@ use Twig\Loader\FilesystemLoader;
 class PdfServiceProvider implements ServiceProviderInterface
 {
     /**
-     * @param Container $container
+     * @param Container $pimple
      * @return void
      */
-    public function register(Container $container)
+    public function register(Container $pimple): void
     {
-        $container->extend('twig.extensions', function ($extensions, $c) {
+        $pimple->extend('twig.extensions', function ($extensions, $c) {
             /** @var RequestStack $requestStack */
             $requestStack = $c['requestStack'];
             if ($requestStack->getMasterRequest() !== null) {
@@ -25,7 +25,7 @@ class PdfServiceProvider implements ServiceProviderInterface
             return $extensions;
         });
 
-        $container->extend('twig.loaderFileSystem', function (FilesystemLoader $loader, $c) {
+        $pimple->extend('twig.loaderFileSystem', function (FilesystemLoader $loader, $c) {
             $loader->prependPath(dirname(__DIR__) . '/Resources/views', 'AbstractPdfTheme');
             return $loader;
         });
