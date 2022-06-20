@@ -108,7 +108,7 @@ trait PdfControllerTrait
                     $e = $e->getPrevious();
                 }
                 $this->get('logger')->error('Can’t output PDF file: ' . $e->getMessage());
-                throw $this->createNotFoundException('Can’t output PDF file. (' . $e->getMessage() . ')');
+                throw $this->createNotFoundException('Can’t output PDF file. (' . $e->getMessage() . ')', $e);
             }
 
             $response = new Response();
